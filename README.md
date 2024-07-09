@@ -1,3 +1,4 @@
-# gymbuddy_github
+# gymbuddy
+This is a project about X.
 
-A new Flutter project.
+(Keep or merge the changes here)
