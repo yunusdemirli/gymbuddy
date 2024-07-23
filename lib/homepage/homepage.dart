@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gymbuddy_github/pages/more.dart';
+import 'package:gymbuddy_github/pages/stats.dart';
+import 'package:gymbuddy_github/pages/workout.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -9,8 +12,22 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  int index = 1;
+  //  ---------------- SELECTED PAGE MANAGER ----------------
+  int _currentindex = 1;
 
+  void _ontapitem(int index) {
+    setState(() {
+      _currentindex = index;
+    });
+  }
+
+  final List<Widget> _pages = [
+    const Stats(),
+    const Workout(),
+    const More(),
+  ];
+
+  //  ---------------- BUILD METHOD ----------------
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +61,8 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
 
-      //  --- BOTTOMNAVIGATIONBAR
+      //  --- BOTTOMNAVIGATIONBAR ---
+      /*
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: index,
         onTap: (value) {
@@ -68,14 +86,31 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ]
       ),
+      */
+
+      bottomNavigationBar: BottomNavigationBar(
+        
+        onTap: _ontapitem,
+        currentIndex: _currentindex,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.leaderboard), label: 'Stats',
+            ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.fitness_center), label: 'Workout',
+            ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.add), label: 'More',
+            ),
+        ],
+        iconSize: 40,
+        selectedItemColor: Colors.indigo,
+        unselectedItemColor: Colors.blue,
+        showUnselectedLabels: false,
+      ),      
 
       //  --- BODY ---
-      body: const Column(
-        children: [
-          Text('data'),
-          Text('data'),
-        ],
-      ),
+      body: _pages[_currentindex],
     );
   }
 }
