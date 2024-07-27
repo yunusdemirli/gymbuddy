@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class Workout extends StatefulWidget {
@@ -8,8 +9,15 @@ class Workout extends StatefulWidget {
 }
 
 class _WorkoutState extends State<Workout> {
+
+  final CarouselController _carouselController = CarouselController();
+
   @override
   Widget build(BuildContext context) {
+
+    DateTime now = DateTime.now();
+    int weekday = now.weekday;
+
     return Center(
       child: Column(
         children: [
@@ -17,27 +25,71 @@ class _WorkoutState extends State<Workout> {
 
           SizedBox(
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(width: 10,),
-                ElevatedButton(onPressed: () {}, style: ElevatedButton.styleFrom(side: BorderSide.none,), child: const Icon(Icons.arrow_back),),
-                const SizedBox(width: 15,),
-                const Text('My Training Planning', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.indigo),),
-                const SizedBox(width: 15,),
-                ElevatedButton(onPressed: () {}, style: ElevatedButton.styleFrom(side: BorderSide.none) ,child: const Icon(Icons.arrow_forward),),
+
+                IconButton(
+                  onPressed: () {
+                    _carouselController.previousPage(
+                      curve: Curves.easeIn,
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(side: BorderSide.none,),
+                  icon: const Icon(Icons.arrow_back)
+                ),
+
+                const SizedBox(width: 50,),
+
+                const Text('My Training Plan', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.indigo),),
+                
+                const SizedBox(width: 50,),
+
+                IconButton(
+                  onPressed: () {
+                    _carouselController.nextPage(
+                      curve: Curves.easeIn,
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(side: BorderSide.none),
+                  icon: const Icon(Icons.arrow_forward)
+                ),
+              
               ],
             ),
           ),
 
-          const SizedBox(height: 150,),
+          const SizedBox(height: 75,),
 
-          Container(
-            color: Colors.indigo,
-            height: 200,
-            width: 200,
-            child: const Center(child: Text('calendar', style: TextStyle(color: Colors.white),)),
+          
+          CarouselSlider(
+            items: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].map((day) {
+            return Container(
+              width: MediaQuery.of(context).size.width,
+              margin: const EdgeInsets.symmetric(horizontal: 5),
+              decoration: BoxDecoration(
+                color: Colors.indigo,
+                borderRadius: BorderRadius.circular(15),
+              ),
+              alignment: Alignment.topCenter,
+              child: Column(
+                children: [
+                  const SizedBox(height: 20,),
+
+                  Text(day, style: const TextStyle(fontSize: 20, color: Colors.white),)
+                ],
+              ),
+            );
+              
+            }).toList(),
+            options: CarouselOptions(
+              height: 350,
+              enlargeCenterPage: true,
+              initialPage: weekday - 1,
+            ),
+            carouselController: _carouselController,
           ),
-
-          const SizedBox(height: 150,),
+          
+          const SizedBox(height: 50,),
 
           ElevatedButton(onPressed: () {}, child: const Text('Add a training session', style: TextStyle(color: Colors.indigo),))
         ],
