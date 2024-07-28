@@ -3,6 +3,8 @@ import 'package:gymbuddy_github/pages/more.dart';
 import 'package:gymbuddy_github/pages/stats.dart';
 import 'package:gymbuddy_github/pages/workout.dart';
 
+import 'package:gymbuddy_github/_data/DataBase.dart';
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
@@ -11,9 +13,22 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   //  ---------------- SELECTED PAGE MANAGER ----------------
-  int _currentindex = 1;
+  late int _currentindex;
+  late DataBase db;
+  late List<Widget> _pages;
+
+  @override
+  void initState() {
+    super.initState();
+    db = DataBase();
+    _currentindex = 1;
+    _pages = [
+      const Stats(),
+      Workout(db: db),
+      const More(),
+    ];
+  }
 
   void _ontapitem(int index) {
     setState(() {
@@ -21,19 +36,17 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  final List<Widget> _pages = [
-    const Stats(),
-    const Workout(),
-    const More(),
-  ];
-
   //  ---------------- BUILD METHOD ----------------
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       //  --- APPBAR ---
       appBar: AppBar(
-        title: const Center(child: Text('GYMBUDDY', style: TextStyle(fontWeight: FontWeight.bold),)),
+        title: const Center(
+            child: Text(
+          'GYMBUDDY',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        )),
         foregroundColor: Colors.white,
         backgroundColor: Colors.indigo,
         actions: [
@@ -42,12 +55,15 @@ class _MyHomePageState extends State<MyHomePage> {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: const Text('data'),
-                  action: SnackBarAction(label: 'undo', onPressed:() {},),
+                  action: SnackBarAction(
+                    label: 'undo',
+                    onPressed: () {},
                   ),
-                );
-              },
+                ),
+              );
+            },
             icon: const Icon(Icons.info_outlined),
-            )
+          )
         ],
       ),
 
@@ -89,25 +105,27 @@ class _MyHomePageState extends State<MyHomePage> {
       */
 
       bottomNavigationBar: BottomNavigationBar(
-        
         onTap: _ontapitem,
         currentIndex: _currentindex,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.leaderboard), label: 'Stats',
-            ),
+            icon: Icon(Icons.leaderboard),
+            label: 'Stats',
+          ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.fitness_center), label: 'Workout',
-            ),
+            icon: Icon(Icons.fitness_center),
+            label: 'Workout',
+          ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add), label: 'More',
-            ),
+            icon: Icon(Icons.add),
+            label: 'More',
+          ),
         ],
         iconSize: 40,
         selectedItemColor: Colors.indigo,
         unselectedItemColor: Colors.blue,
         showUnselectedLabels: false,
-      ),      
+      ),
 
       //  --- BODY ---
       body: _pages[_currentindex],
