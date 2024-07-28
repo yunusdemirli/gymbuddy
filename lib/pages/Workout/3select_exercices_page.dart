@@ -89,7 +89,8 @@ class _ExercicesPageState extends State<ExercicesPage> {
                         color: Theme.of(context).colorScheme.inversePrimary,
                         fontSize: 20),
                   )),
-                  leading: ClipOval(child: Image.asset('assets/abdos.jpg')),
+                  leading: ClipOval(
+                      child: Image.asset('assets/mountain_climber.jpg')),
                   children: const [
                     Abdos(),
                   ],
@@ -185,7 +186,7 @@ class _ExercicesPageState extends State<ExercicesPage> {
                         color: Theme.of(context).colorScheme.inversePrimary,
                         fontSize: 20),
                   )),
-                  leading: ClipOval(child: Image.asset('assets/legs.png')),
+                  leading: ClipOval(child: Image.asset('assets/legs.jpg')),
                   children: const [
                     Legs(),
                   ],

@@ -21,5 +21,9 @@ dev_dependencies:
 
 flutter:
   assets:
-    - assets/mountain_climber.jpeg
+    - assets/mountain_climber.jpg
+    - assets/biceps.jpg
+    - assets/dorsals.jpg
+    - assets/legs.jpg
+    - assets/shoulders.png
   uses-material-design: true

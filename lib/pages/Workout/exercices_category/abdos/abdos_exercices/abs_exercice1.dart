@@ -64,7 +64,7 @@ class AbdosExercice1 extends StatelessWidget {
                     // Return the exercise name and image asset path
                     Navigator.pop(context, {
                       'name': 'Mountain Climber',
-                      'image': 'assets/mountain_climber.jpeg'
+                      'image': 'assets/mountain_climber.jpg'
                     });
                   },
                   child: const Icon(Icons.add, size: 30),
@@ -82,7 +82,7 @@ class AbdosExercice1 extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
               color: Colors.white,
             ),
-            child: Image.asset('assets/mountain_climber.jpeg'),
+            child: Image.asset('assets/mountain_climber.jpg'),
           ),
           //------------------------------------------------------------------------------
 

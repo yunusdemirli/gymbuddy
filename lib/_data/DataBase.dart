@@ -17,25 +17,25 @@ class DataBase {
   void CreateInitData() {
     WorkoutList = {
       'MONDAY': [
-        {'Exercice': 'montain climber', 'Image': 'assets/mountain_climber.jpeg'}
+        {'Exercice': 'montain climber', 'Image': 'assets/mountain_climber.jpg'}
       ],
       'TUESDAY': [
-        {'Exercice': 'montain climber', 'Image': 'assets/mountain_climber.jpeg'}
+        {'Exercice': 'montain climber', 'Image': 'assets/mountain_climber.jpg'}
       ],
       'WEDNESDAY': [
-        {'Exercice': 'montain climber', 'Image': 'assets/mountain_climber.jpeg'}
+        {'Exercice': 'montain climber', 'Image': 'assets/mountain_climber.jpg'}
       ],
       'THURSDAY': [
-        {'Exercice': 'montain climber', 'Image': 'assets/mountain_climber.jpeg'}
+        {'Exercice': 'montain climber', 'Image': 'assets/mountain_climber.jpg'}
       ],
       'FRIDAY': [
-        {'Exercice': 'montain climber', 'Image': 'assets/mountain_climber.jpeg'}
+        {'Exercice': 'montain climber', 'Image': 'assets/mountain_climber.jpg'}
       ],
       'SATURDAY': [
-        {'Exercice': 'montain climber', 'Image': 'assets/mountain_climber.jpeg'}
+        {'Exercice': 'montain climber', 'Image': 'assets/mountain_climber.jpg'}
       ],
       'SUNDAY': [
-        {'Exercice': 'montain climber', 'Image': 'assets/mountain_climber.jpeg'}
+        {'Exercice': 'montain climber', 'Image': 'assets/mountain_climber.jpg'}
       ],
     };
   }
