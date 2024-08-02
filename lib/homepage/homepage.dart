@@ -78,32 +78,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
 
       //  --- BOTTOMNAVIGATIONBAR ---
-      /*
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: index,
-        onTap: (value) {
-          setState(() {
-            index = value;
-          });
-        },
-        iconSize: 30,
-        selectedItemColor: Colors.indigo,
-        unselectedItemColor: Colors.blue,
-        selectedLabelStyle: const TextStyle(fontSize: 18),
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.leaderboard), label: 'Stats'
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.fitness_center), label: 'Workout'
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add), label: 'More'
-          ),
-        ]
-      ),
-      */
-
       bottomNavigationBar: BottomNavigationBar(
         onTap: _ontapitem,
         currentIndex: _currentindex,
