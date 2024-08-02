@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gymbuddy_github/pages/more.dart';
-import 'package:gymbuddy_github/pages/stats.dart';
-import 'package:gymbuddy_github/pages/workout.dart';
+import 'package:gymbuddy_github/morepage/more.dart';
+import 'package:gymbuddy_github/statspage/stats.dart';
+import 'package:gymbuddy_github/workoutpage/workout.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -62,32 +62,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
 
       //  --- BOTTOMNAVIGATIONBAR ---
-      /*
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: index,
-        onTap: (value) {
-          setState(() {
-            index = value;
-          });
-        },
-        iconSize: 30,
-        selectedItemColor: Colors.indigo,
-        unselectedItemColor: Colors.blue,
-        selectedLabelStyle: const TextStyle(fontSize: 18),
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.leaderboard), label: 'Stats'
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.fitness_center), label: 'Workout'
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add), label: 'More'
-          ),
-        ]
-      ),
-      */
-
       bottomNavigationBar: BottomNavigationBar(
         
         onTap: _ontapitem,

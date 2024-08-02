@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:gymbuddy_github/morepage/more.dart';
 
 class Workout extends StatefulWidget {
   const Workout({super.key});
@@ -11,12 +12,22 @@ class Workout extends StatefulWidget {
 class _WorkoutState extends State<Workout> {
 
   final CarouselController _carouselController = CarouselController();
+  //  final int _containersatatue = 0;
 
   @override
   Widget build(BuildContext context) {
 
     DateTime now = DateTime.now();
     int weekday = now.weekday;
+    final List<String> _days = [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ];
 
     return Center(
       child: Column(
@@ -62,23 +73,23 @@ class _WorkoutState extends State<Workout> {
 
           
           CarouselSlider(
-            items: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].map((day) {
-            return Container(
-              width: MediaQuery.of(context).size.width,
-              margin: const EdgeInsets.symmetric(horizontal: 5),
-              decoration: BoxDecoration(
-                color: Colors.indigo,
-                borderRadius: BorderRadius.circular(15),
-              ),
-              alignment: Alignment.topCenter,
-              child: Column(
-                children: [
-                  const SizedBox(height: 20,),
+            items: _days.map((day) {
 
-                  Text(day, style: const TextStyle(fontSize: 20, color: Colors.white),)
-                ],
-              ),
-            );
+              return GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const More()));
+                },
+                child: Container(
+                  height: 350,
+                  width: MediaQuery.of(context).size.width,
+                  margin: const EdgeInsets.symmetric(horizontal: 5),
+                  decoration: BoxDecoration(
+                    color: Colors.indigo,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  alignment: Alignment.center,
+                  child: Text(day, style: const TextStyle(color: Colors.white, fontSize: 25))),
+              );
               
             }).toList(),
             options: CarouselOptions(
