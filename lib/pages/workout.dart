@@ -84,7 +84,7 @@ class _WorkoutState extends State<Workout> {
             options: CarouselOptions(
               height: 350,
               enlargeCenterPage: true,
-              initialPage: weekday - 1,
+              initialPage: weekday,
             ),
             carouselController: _carouselController,
           ),
