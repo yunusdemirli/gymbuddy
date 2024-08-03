@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:gymbuddy_github/morepage/more.dart';
+import 'package:gymbuddy_github/workoutpage/list_of_workout.dart';
 
 class Workout extends StatefulWidget {
   const Workout({super.key});
@@ -12,14 +13,13 @@ class Workout extends StatefulWidget {
 class _WorkoutState extends State<Workout> {
 
   final CarouselController _carouselController = CarouselController();
-  //  final int _containersatatue = 0;
 
   @override
   Widget build(BuildContext context) {
 
     DateTime now = DateTime.now();
     int weekday = now.weekday;
-    final List<String> _days = [
+    final List<String> days = [
       "Monday",
       "Tuesday",
       "Wednesday",
@@ -73,11 +73,11 @@ class _WorkoutState extends State<Workout> {
 
           
           CarouselSlider(
-            items: _days.map((day) {
+            items: days.map((day) {
 
               return GestureDetector(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const More()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ListOfWorkout(selectedDay: day,)));
                 },
                 child: Container(
                   height: 350,
