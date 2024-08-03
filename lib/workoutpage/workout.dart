@@ -1,7 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:gymbuddy_github/morepage/more.dart';
-import 'package:gymbuddy_github/workoutpage/list_of_workout.dart';
+import 'package:gymbuddy_github/_widgets/carouselslider.dart';
 
 class Workout extends StatefulWidget {
   const Workout({super.key});
@@ -12,22 +11,11 @@ class Workout extends StatefulWidget {
 
 class _WorkoutState extends State<Workout> {
 
-  final CarouselController _carouselController = CarouselController();
+  final CarouselController carouselController = CarouselController();
+  
 
   @override
   Widget build(BuildContext context) {
-
-    DateTime now = DateTime.now();
-    int weekday = now.weekday;
-    final List<String> days = [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
-    ];
 
     return Center(
       child: Column(
@@ -41,7 +29,7 @@ class _WorkoutState extends State<Workout> {
 
                 IconButton(
                   onPressed: () {
-                    _carouselController.previousPage(
+                    carouselController.previousPage(
                       curve: Curves.easeIn,
                     );
                   },
@@ -57,7 +45,7 @@ class _WorkoutState extends State<Workout> {
 
                 IconButton(
                   onPressed: () {
-                    _carouselController.nextPage(
+                    carouselController.nextPage(
                       curve: Curves.easeIn,
                     );
                   },
@@ -71,38 +59,23 @@ class _WorkoutState extends State<Workout> {
 
           const SizedBox(height: 75,),
 
+          MyCarouselslider(mycarouselController: carouselController,),
           
-          CarouselSlider(
-            items: days.map((day) {
+          const SizedBox(height: 35,),
 
-              return GestureDetector(
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => ListOfWorkout(selectedDay: day,)));
-                },
-                child: Container(
-                  height: 350,
-                  width: MediaQuery.of(context).size.width,
-                  margin: const EdgeInsets.symmetric(horizontal: 5),
-                  decoration: BoxDecoration(
-                    color: Colors.indigo,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  alignment: Alignment.center,
-                  child: Text(day, style: const TextStyle(color: Colors.white, fontSize: 25))),
-              );
-              
-            }).toList(),
-            options: CarouselOptions(
-              height: 350,
-              enlargeCenterPage: true,
-              initialPage: weekday,
+          SizedBox(
+            height: 60,
+            width: 90,
+            child: FloatingActionButton(
+              onPressed: () {},
+              backgroundColor: Colors.indigo,
+              splashColor: Colors.indigoAccent,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: const Icon(Icons.play_arrow, size: 20, color: Colors.white,)
             ),
-            carouselController: _carouselController,
-          ),
-          
-          const SizedBox(height: 50,),
-
-          ElevatedButton(onPressed: () {}, child: const Text('Add a training session', style: TextStyle(color: Colors.indigo),))
+          )
         ],
       ),
     );

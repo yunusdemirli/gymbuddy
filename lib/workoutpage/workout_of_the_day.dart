@@ -10,7 +10,7 @@ import 'package:gymbuddy_github/workoutpage/7sunday.dart';
 class ListOfWorkout extends StatelessWidget {
 
   final String selectedDay;
-  const ListOfWorkout({Key? key, required this.selectedDay}) : super(key: key);
+  const ListOfWorkout({super.key, required this.selectedDay});
 
   Widget getDayContent() {
     switch (selectedDay) {
