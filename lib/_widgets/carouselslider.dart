@@ -5,11 +5,48 @@ import 'package:gymbuddy_github/workoutpage/workout_of_the_day.dart';
 class MyCarouselslider extends StatelessWidget {
 
   final CarouselController mycarouselController;
-  final int _isDayOff = 0;
   const MyCarouselslider({super.key, required this.mycarouselController});
 
   @override
   Widget build(BuildContext context) {
+
+    final List<Widget> weekdayscontainer = [
+      const Column(
+        children: [
+          Center(child: Text("Day off", style: TextStyle(color: Colors.white, fontSize: 20,),))
+        ],
+      ),
+      const Column(
+        children: [
+          Center(child: Text("Day off", style: TextStyle(color: Colors.white, fontSize: 20,),))
+        ],
+      ),
+      const Column(
+        children: [
+          Center(child: Text("Day off", style: TextStyle(color: Colors.white, fontSize: 20,),))
+        ],
+      ),
+      const Column(
+        children: [
+          Center(child: Text("Day off", style: TextStyle(color: Colors.white, fontSize: 20,),))
+        ],
+      ),
+      const Column(
+        children: [
+          Center(child: Text("Day off", style: TextStyle(color: Colors.white, fontSize: 20,),))
+        ],
+      ),
+      const Column(
+        children: [
+          Center(child: Text("Day off", style: TextStyle(color: Colors.white, fontSize: 20,),))
+        ],
+      ),
+      const Column(
+        children: [
+          Center(child: Text("Day off", style: TextStyle(color: Colors.white, fontSize: 20,),))
+        ],
+      ),
+    ];
 
     DateTime now = DateTime.now();
     int weekday = now.weekday;
@@ -24,11 +61,11 @@ class MyCarouselslider extends StatelessWidget {
     ];
 
     return CarouselSlider(
-
-      items: days.map((day) {
+      
+      items: List.generate(days.length, (index) {
         return GestureDetector(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => ListOfWorkout(selectedDay: day,)));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => ListOfWorkout(selectedDay: days[index],)));
           },
           child: Container(
             height: 350,
@@ -43,14 +80,10 @@ class MyCarouselslider extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(day, style: const TextStyle(color: Colors.white, fontSize: 25,),),
+                Text(days[index], style: const TextStyle(color: Colors.white, fontSize: 25,),),
                 const Divider(height: 10, color: Colors.white,),
-                _isDayOff == 0 ? const Column(
-                  children: [
-                    SizedBox(height: 100,),
-                    Center(child: Text("Day off", style: TextStyle(color: Colors.white, fontSize: 20),))
-                  ],
-                ) : const SizedBox.shrink(),
+                const SizedBox(height: 25,),
+                weekdayscontainer[index],
               ],
             )
           ),
