@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:gymbuddy_github/workoutpage/workout_of_the_day.dart';
+import 'package:gymbuddy_github/workoutpage/listofworkout.dart';
 
 class MyCarouselslider extends StatelessWidget {
 
@@ -93,7 +93,7 @@ class MyCarouselslider extends StatelessWidget {
       options: CarouselOptions(
         height: 350,
         enlargeCenterPage: true,
-        initialPage: weekday,
+        initialPage: weekday - 1,
       ),
       carouselController: mycarouselController,
     );
