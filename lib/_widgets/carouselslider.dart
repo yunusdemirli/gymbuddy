@@ -1,49 +1,83 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:gymbuddy_github/workoutpage/listofworkout.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class MyCarouselslider extends StatelessWidget {
+class MyCarouselslider extends StatefulWidget {
 
   final CarouselController mycarouselController;
   const MyCarouselslider({super.key, required this.mycarouselController});
 
   @override
+  State<MyCarouselslider> createState() => _MyCarouselsliderState();
+}
+
+class _MyCarouselsliderState extends State<MyCarouselslider> {
+
+  String _mondayTitle = 'Day off';
+  String _tuesdayTitle = 'Day off';
+  String _wednesdayTitle = 'Day off';
+  String _thursdayTitle = 'Day off';
+  String _fridayTitle = 'Day off';
+  String _saturdayTitle = 'Day off';
+  String _sundayTitle = 'Day off';
+
+  @override
+  void initState() {
+    super.initState();
+    _loadTrainingTitle();
+  }
+
+  void _loadTrainingTitle() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _mondayTitle = prefs.getString('title1') ?? 'No data found';
+      _tuesdayTitle = prefs.getString('title2') ?? 'No data found';
+      _wednesdayTitle = prefs.getString('title3') ?? 'No data found';
+      _thursdayTitle = prefs.getString('title4') ?? 'No data found';
+      _fridayTitle = prefs.getString('title5') ?? 'No data found';
+      _saturdayTitle = prefs.getString('title6') ?? 'No data found';
+      _sundayTitle = prefs.getString('title7') ?? 'No data found';
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
 
     final List<Widget> weekdayscontainer = [
-      const Column(
+      Column(
         children: [
-          Center(child: Text("Day off", style: TextStyle(color: Colors.white, fontSize: 20,),))
+          Center(child: Text(_mondayTitle, style: const TextStyle(color: Colors.white, fontSize: 20,),))
         ],
       ),
-      const Column(
+      Column(
         children: [
-          Center(child: Text("Day off", style: TextStyle(color: Colors.white, fontSize: 20,),))
+          Center(child: Text(_tuesdayTitle, style: const TextStyle(color: Colors.white, fontSize: 20,),))
         ],
       ),
-      const Column(
+      Column(
         children: [
-          Center(child: Text("Day off", style: TextStyle(color: Colors.white, fontSize: 20,),))
+          Center(child: Text(_wednesdayTitle, style: const TextStyle(color: Colors.white, fontSize: 20,),))
         ],
       ),
-      const Column(
+      Column(
         children: [
-          Center(child: Text("Day off", style: TextStyle(color: Colors.white, fontSize: 20,),))
+          Center(child: Text(_thursdayTitle, style: const TextStyle(color: Colors.white, fontSize: 20,),))
         ],
       ),
-      const Column(
+      Column(
         children: [
-          Center(child: Text("Day off", style: TextStyle(color: Colors.white, fontSize: 20,),))
+          Center(child: Text(_fridayTitle, style: const TextStyle(color: Colors.white, fontSize: 20,),))
         ],
       ),
-      const Column(
+      Column(
         children: [
-          Center(child: Text("Day off", style: TextStyle(color: Colors.white, fontSize: 20,),))
+          Center(child: Text(_saturdayTitle, style: const TextStyle(color: Colors.white, fontSize: 20,),))
         ],
       ),
-      const Column(
+      Column(
         children: [
-          Center(child: Text("Day off", style: TextStyle(color: Colors.white, fontSize: 20,),))
+          Center(child: Text(_sundayTitle, style: const TextStyle(color: Colors.white, fontSize: 20,),))
         ],
       ),
     ];
@@ -95,7 +129,7 @@ class MyCarouselslider extends StatelessWidget {
         enlargeCenterPage: true,
         initialPage: weekday - 1,
       ),
-      carouselController: mycarouselController,
+      carouselController: widget.mycarouselController,
     );
   }
 }

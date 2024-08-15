@@ -9,32 +9,31 @@ class TuesdayTraining extends StatefulWidget {
 }
 
 class _TuesdayTrainingState extends State<TuesdayTraining> {
-  final TextEditingController _bioController = TextEditingController();
-  String _bio = '';
+  final TextEditingController _trainingTitle2 = TextEditingController();
+  String _title2 = '';
 
   @override
   void initState() {
     super.initState();
-    _loadBio();
+    _loadtitle2();
   }
 
-  // Load bio from shared preferences
-  _loadBio() async {
+  _loadtitle2() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
-      _bio = (prefs.getString('bio') ?? 'Your bio here...');
-      _bioController.text = _bio;
+      _title2 = (prefs.getString('title2') ?? '');
+      _trainingTitle2.text = _title2;
     });
   }
 
-  // Save bio to shared preferences
-  _saveBio() async {
+  _savetitle2() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString('bio', _bioController.text);
+    prefs.setString('title2', _trainingTitle2.text);
     setState(() {
-      _bio = _bioController.text;
+      _title2 = _trainingTitle2.text;
     });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -43,22 +42,22 @@ class _TuesdayTrainingState extends State<TuesdayTraining> {
       children: [
         const SizedBox(height: 20,),
 
-        const Text('   Tuesday Training', style: TextStyle(fontSize: 22),),
+        const Text('  Tuesday Training', style: TextStyle(fontSize: 20, color: Colors.indigo),),
 
         const Divider(
-          color: Colors.black,
+          color: Colors.indigo,
           thickness: 1,
         ),
 
         Row(
           children: [
 
-            const SizedBox(width: 15),
+            const SizedBox(width: 15,),
 
             Expanded(
               child: TextField(
-                controller: _bioController,
-                decoration: const InputDecoration(border: InputBorder.none),
+                controller: _trainingTitle2,
+                decoration: const InputDecoration(border: InputBorder.none, hintText: "Training title..."),
                 style: const TextStyle(fontSize: 20, color: Colors.indigo),
                 readOnly: true,
               )
@@ -68,14 +67,14 @@ class _TuesdayTrainingState extends State<TuesdayTraining> {
               onPressed: () {
                 _showEditDialog(context);
               },
-              icon: const Icon(Icons.edit, color: Colors.indigo,),
-            ),
-
+              icon: const Icon(Icons.edit, color: Colors.indigo,)
+            )
           ],
-        ),
+        )
       ],
     );
   }
+
 
   void _showEditDialog(BuildContext context) {
   showDialog(
@@ -84,23 +83,23 @@ class _TuesdayTrainingState extends State<TuesdayTraining> {
       return AlertDialog(
         title: const Text('Edit training title'),
         content: TextField(
-          controller: _bioController,
+          controller: _trainingTitle2,
           autofocus: true,
-          decoration: const InputDecoration(hintText: 'Enter your bio'),
+          decoration: const InputDecoration(hintText: 'Enter your training title'),
         ),
         actions: <Widget>[
           TextButton(
             onPressed: () {
-              Navigator.of(context).pop();
+              Navigator.of(context).pop();  
             },
-            child: const Text('Cancel'),
+            child: const Text("Cancel")
           ),
           TextButton(
             onPressed: () {
-              _saveBio();
-              Navigator.of(context).pop();
+              _savetitle2();
+              Navigator.of(context).pop();  
             },
-            child: const Text('Save'),
+            child: const Text("Save")
           ),
         ],
       );
