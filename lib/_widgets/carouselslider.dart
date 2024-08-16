@@ -14,13 +14,13 @@ class MyCarouselslider extends StatefulWidget {
 
 class _MyCarouselsliderState extends State<MyCarouselslider> {
 
-  String _mondayTitle = 'Day off';
-  String _tuesdayTitle = 'Day off';
-  String _wednesdayTitle = 'Day off';
-  String _thursdayTitle = 'Day off';
-  String _fridayTitle = 'Day off';
-  String _saturdayTitle = 'Day off';
-  String _sundayTitle = 'Day off';
+  String _mondayTitle = '';
+  String _tuesdayTitle = '';
+  String _wednesdayTitle = '';
+  String _thursdayTitle = '';
+  String _fridayTitle = '';
+  String _saturdayTitle = '';
+  String _sundayTitle = '';
 
   @override
   void initState() {
