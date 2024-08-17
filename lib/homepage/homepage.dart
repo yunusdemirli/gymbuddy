@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gymbuddy_github/morepage/more.dart';
-import 'package:gymbuddy_github/statspage/stats.dart';
+import 'package:gymbuddy_github/exercicespage/exercices.dart';
 import 'package:gymbuddy_github/workoutpage/workout.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -68,10 +68,10 @@ class _MyHomePageState extends State<MyHomePage> {
         currentIndex: _currentindex,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.leaderboard), label: 'Stats',
+            icon: Icon(Icons.fitness_center), label: 'Exercices',
             ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.fitness_center), label: 'Workout',
+            icon: Icon(Icons.edit_calendar), label: 'Workout',
             ),
           BottomNavigationBarItem(
             icon: Icon(Icons.add), label: 'More',

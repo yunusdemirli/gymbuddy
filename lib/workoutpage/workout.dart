@@ -39,7 +39,7 @@ class _WorkoutState extends State<Workout> {
 
                 const SizedBox(width: 50,),
 
-                const Text('My Training Plan', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.indigo),),
+                const Text('My Workout Plan', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.indigo),),
                 
                 const SizedBox(width: 50,),
 
