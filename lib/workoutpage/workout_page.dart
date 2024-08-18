@@ -2,14 +2,14 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:gymbuddy_github/_widgets/workout_carousel_slider.dart';
 
-class Workout extends StatefulWidget {
-  const Workout({super.key});
+class WorkoutPage extends StatefulWidget {
+  const WorkoutPage({super.key});
 
   @override
-  State<Workout> createState() => _WorkoutState();
+  State<WorkoutPage> createState() => _WorkoutPageState();
 }
 
-class _WorkoutState extends State<Workout> {
+class _WorkoutPageState extends State<WorkoutPage> {
 
   final CarouselController carouselController = CarouselController();
   

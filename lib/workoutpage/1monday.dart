@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:gymbuddy_github/_widgets/week_days_title.dart';
 
 class MondayTraining extends StatefulWidget {
   const MondayTraining({super.key});
@@ -10,100 +10,63 @@ class MondayTraining extends StatefulWidget {
 
 class _MondayTrainingState extends State<MondayTraining> {
   final TextEditingController _trainingTitle1 = TextEditingController();
-  String _title1 = '';
-
-  @override
-  void initState() {
-    super.initState();
-    _loadtitle1();
-  }
-
-  _loadtitle1() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
-      _title1 = (prefs.getString('title1') ?? '');
-      _trainingTitle1.text = _title1;
-    });
-  }
-
-  _savetitle1() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString('title1', _trainingTitle1.text);
-    setState(() {
-      _title1 = _trainingTitle1.text;
-    });
-  }
-
+  final String _title1 = '';
+  final String _dataBaseTitle1 = 'title1';
+  final String _weekDayTraining1 = 'Monday';
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const SizedBox(height: 20,),
-
-        const Text('  Monday Training', style: TextStyle(fontSize: 20, color: Colors.indigo),),
-
-        const Divider(
-          color: Colors.indigo,
-          thickness: 1,
-        ),
-
-        Row(
-          children: [
-
-            const SizedBox(width: 15,),
-
-            Expanded(
-              child: TextField(
-                controller: _trainingTitle1,
-                decoration: const InputDecoration(border: InputBorder.none, hintText: "Training title..."),
-                style: const TextStyle(fontSize: 20, color: Colors.indigo),
-                readOnly: true,
-              )
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+      
+          WeekDaysBody(
+            trainingTitle: _trainingTitle1,
+            title: _title1,
+            dataBaseTitle: _dataBaseTitle1,
+            weekDayTraining: _weekDayTraining1
+          ),
+      
+          const SizedBox(height: 25,),
+      
+          Container(
+            margin: const EdgeInsets.all(7),
+            padding: const EdgeInsets.all(5),
+            decoration: BoxDecoration(
+              color: Colors.indigo,
+              borderRadius: BorderRadius.circular(20),
             ),
+            child: Column(
+              children: [
+                const SizedBox(height: 15,),
+                Row(
+                  children: [
+                    const Text('   Add exercices', style: TextStyle(fontSize: 23, color: Colors.white, fontWeight: FontWeight.bold),),
+                    const Spacer(),
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        foregroundColor: Colors.indigo,
+                      ),
+                      onPressed: () {},
+                      child: const Icon(Icons.add, size: 40,),
+                    ),
+                    const SizedBox(width: 50,)
+                  ],
+                ),
 
-            IconButton(
-              onPressed: () {
-                _showEditDialog(context);
-              },
-              icon: const Icon(Icons.edit, color: Colors.indigo,)
-            )
-          ],
-        )
-      ],
+                const SizedBox(height: 15,),
+
+                const Divider(
+                  color: Colors.white,
+                ),
+
+                const SizedBox(height: 25,),
+              ],
+            ),
+          )
+        ]
+      ),
     );
   }
-
-
-  void _showEditDialog(BuildContext context) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        title: const Text('Edit training title'),
-        content: TextField(
-          controller: _trainingTitle1,
-          autofocus: true,
-          decoration: const InputDecoration(hintText: 'Enter your training title'),
-        ),
-        actions: <Widget>[
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();  
-            },
-            child: const Text("Cancel")
-          ),
-          TextButton(
-            onPressed: () {
-              _savetitle1();
-              Navigator.of(context).pop();  
-            },
-            child: const Text("Save")
-          ),
-        ],
-      );
-    }
-  );
-}
 }

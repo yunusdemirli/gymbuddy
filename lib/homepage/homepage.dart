@@ -22,9 +22,9 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   final List<Widget> _pages = [
-    const Stats(),
-    const Workout(),
-    const More(),
+    const ExercicesPage(),
+    const WorkoutPage(),
+    const MorePage(),
   ];
 
   //  ---------------- BUILD METHOD ----------------

@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:gymbuddy_github/_widgets/exercice_category_list.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class Stats extends StatefulWidget {
-  const Stats({super.key});
+class ExercicesPage extends StatefulWidget {
+  const ExercicesPage({super.key});
 
   @override
-  State<Stats> createState() => _StatsState();
+  State<ExercicesPage> createState() => _ExercicesPageState();
 }
 
-class _StatsState extends State<Stats> {
+class _ExercicesPageState extends State<ExercicesPage> {
 
   final List<Color> mycolors = [
     Colors.blue,
