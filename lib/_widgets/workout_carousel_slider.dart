@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:gymbuddy_github/workoutpage/listofworkout.dart';
+import 'package:gymbuddy_github/workoutpage/list_of_workout.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class MyCarouselslider extends StatefulWidget {

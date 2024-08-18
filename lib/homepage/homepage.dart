@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gymbuddy_github/morepage/more.dart';
-import 'package:gymbuddy_github/exercicespage/exercices.dart';
-import 'package:gymbuddy_github/workoutpage/workout.dart';
+import 'package:gymbuddy_github/morepage/more_page.dart';
+import 'package:gymbuddy_github/exercicespage/exercices_page.dart';
+import 'package:gymbuddy_github/workoutpage/workout_page.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
