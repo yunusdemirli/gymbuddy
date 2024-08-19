@@ -16,6 +16,6 @@ class _WednesdayTrainingState extends State<WednesdayTraining> {
 
   @override
   Widget build(BuildContext context) {
-    return WeekDaysBody(trainingTitle: _trainingTitle3, title: _title3, dataBaseTitle: _dataBaseTitle3, weekDayTraining: _weekDayTraining3);
+    return WeekDaysTitle(trainingTitle: _trainingTitle3, title: _title3, dataBaseTitle: _dataBaseTitle3, weekDayTraining: _weekDayTraining3);
   }
 }

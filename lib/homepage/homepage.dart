@@ -3,6 +3,11 @@ import 'package:gymbuddy_github/morepage/more_page.dart';
 import 'package:gymbuddy_github/exercicespage/exercices_page.dart';
 import 'package:gymbuddy_github/workoutpage/workout_page.dart';
 
+//  --- EXPLANATION ---
+//  this class is the homepage and manages the structure of the app by providing
+//  an appbar, a drawer, a bottomnavigationbar calling 3 classes to show the 3
+//  main pages of the app.
+//  -------------------
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
@@ -12,7 +17,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  //  ---------------- SELECTED PAGE MANAGER ----------------
   int _currentindex = 1;
 
   void _ontapitem(int index) {
@@ -27,11 +31,11 @@ class _MyHomePageState extends State<MyHomePage> {
     const MorePage(),
   ];
 
-  //  ---------------- BUILD METHOD ----------------
+  //  build method
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //  --- APPBAR ---
+
       appBar: AppBar(
         title: const Center(child: Text('GYMBUDDY', style: TextStyle(fontWeight: FontWeight.bold),)),
         foregroundColor: Colors.white,
@@ -51,7 +55,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
 
-      //  --- DRAWER ---
       drawer: const Drawer(
         child: Column(
           children: [
@@ -61,7 +64,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
 
-      //  --- BOTTOMNAVIGATIONBAR ---
       bottomNavigationBar: BottomNavigationBar(
         
         onTap: _ontapitem,
@@ -83,7 +85,6 @@ class _MyHomePageState extends State<MyHomePage> {
         showUnselectedLabels: false,
       ),      
 
-      //  --- BODY ---
       body: _pages[_currentindex],
     );
   }

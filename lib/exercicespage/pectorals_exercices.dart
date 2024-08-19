@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+//  --- EXPLANATION ---
+//  this class manages the list of exercices for pectorals category.
+//  -------------------
 class Pectoralsexercices extends StatelessWidget {
   const Pectoralsexercices({super.key});
 

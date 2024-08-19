@@ -20,7 +20,7 @@ class _MondayTrainingState extends State<MondayTraining> {
       child: Column(
         children: [
       
-          WeekDaysBody(
+          WeekDaysTitle(
             trainingTitle: _trainingTitle1,
             title: _title1,
             dataBaseTitle: _dataBaseTitle1,

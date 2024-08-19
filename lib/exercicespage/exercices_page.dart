@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:gymbuddy_github/_widgets/exercice_category_list.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+//  --- EXPLANATION ---
+//  this class manages the exercices page, the first page of the bottomnavigationbar.
+//  -------------------
 class ExercicesPage extends StatefulWidget {
   const ExercicesPage({super.key});
 
@@ -27,9 +30,10 @@ class _ExercicesPageState extends State<ExercicesPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-      
+
+          //  upper part of the exercices pages
           const SizedBox(height: 15,),
-        
+
           const Text('  Custom Workouts', style: TextStyle(color: Colors.indigo, fontSize: 23, fontWeight: FontWeight.bold),),
         
           CarouselSlider(
@@ -57,7 +61,8 @@ class _ExercicesPageState extends State<ExercicesPage> {
           const Divider(
             color: Colors.indigo,
           ),
-        
+
+          //  bottom part of the exercices pages
           const SizedBox(height: 15,),
         
           Row(
@@ -81,6 +86,7 @@ class _ExercicesPageState extends State<ExercicesPage> {
     );
   }
 
+  //  manages the indicator under the exercice page's carousel slider
   Widget buildIndicator() => AnimatedSmoothIndicator(
     activeIndex: activeIndex,
     count: mycolors.length,
@@ -92,8 +98,10 @@ class _ExercicesPageState extends State<ExercicesPage> {
   );
 }
 
-
-//  Custom workouts containers class
+//  --- EXPLANATION ---
+//  this class manages the containers of the carousel slider in the upper part
+//  of this page.
+//  -------------------
 class CarouselContainer extends StatelessWidget {
   final Color mycolor;
   const CarouselContainer({super.key, required this.mycolor});

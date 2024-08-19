@@ -1,8 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:gymbuddy_github/main.dart';
 import 'package:gymbuddy_github/workoutpage/list_of_workout.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+//  --- EXPLANATION ---
+//  this class manages the massive carousel slider at the center of the workout page.
+//  -------------------
 class MyCarouselslider extends StatefulWidget {
 
   final CarouselController mycarouselController;
@@ -12,8 +16,9 @@ class MyCarouselslider extends StatefulWidget {
   State<MyCarouselslider> createState() => _MyCarouselsliderState();
 }
 
-class _MyCarouselsliderState extends State<MyCarouselslider> {
+class _MyCarouselsliderState extends State<MyCarouselslider> with RouteAware {
 
+  //  string used to name the days's training titles
   String _mondayTitle = '';
   String _tuesdayTitle = '';
   String _wednesdayTitle = '';
@@ -22,12 +27,14 @@ class _MyCarouselsliderState extends State<MyCarouselslider> {
   String _saturdayTitle = '';
   String _sundayTitle = '';
 
+  //  initState from sharedpreferences method
   @override
   void initState() {
     super.initState();
     _loadTrainingTitle();
   }
 
+  //  load training name's data from the database using sharedpreferences
   void _loadTrainingTitle() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
@@ -41,9 +48,32 @@ class _MyCarouselsliderState extends State<MyCarouselslider> {
     });
   }
 
+  //  --- route observer method the update the page after modifications of the training
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final route = ModalRoute.of(context);
+    if (route is PageRoute) {
+      routeObserver.subscribe(this, route);
+    }
+  }
+  @override
+  void dispose() {
+    routeObserver.unsubscribe(this);
+    super.dispose();
+  }
+  @override
+  void didPopNext() {
+    // This method is called when the page comes back into view after popping.
+    _loadTrainingTitle(); // refresh the data
+  }
+  //  --- end of the route observer method  ---
+
+  //  build method
   @override
   Widget build(BuildContext context) {
 
+    //  list of column widget, each column for a container of the carousel slider
     final List<Widget> weekdayscontainer = [
       Column(
         children: [
@@ -82,8 +112,11 @@ class _MyCarouselsliderState extends State<MyCarouselslider> {
       ),
     ];
 
+    //  to get the date time
     DateTime now = DateTime.now();
     int weekday = now.weekday;
+
+    //  list of string to name the containers day
     final List<String> days = [
       "Monday",
       "Tuesday",
@@ -132,4 +165,5 @@ class _MyCarouselsliderState extends State<MyCarouselslider> {
       carouselController: widget.mycarouselController,
     );
   }
+  //  --- end of the build method ---
 }

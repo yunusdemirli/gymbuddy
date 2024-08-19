@@ -1,27 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+//  --- EXPLANATION ---
+//  this class manages the few lines of the upper parts of each daily training, those
+//  lines show the day of the week and allow to change the training title of each day.
+//  -------------------
 // ignore: must_be_immutable
-class WeekDaysBody extends StatefulWidget {
+class WeekDaysTitle extends StatefulWidget {
   TextEditingController trainingTitle = TextEditingController();
-  String title = '';
-  String dataBaseTitle = '';
-  String weekDayTraining = '';
-  WeekDaysBody({super.key, required this.trainingTitle, required this.title, required this.dataBaseTitle, required this.weekDayTraining});
+  String title = '';              //  default title of the training
+  String dataBaseTitle = '';      //  database name
+  String weekDayTraining = '';    //  day of the week for each training
+  WeekDaysTitle({super.key, required this.trainingTitle, required this.title, required this.dataBaseTitle, required this.weekDayTraining});
 
   @override
-  State<WeekDaysBody> createState() => _WeekDaysBodyState();
+  State<WeekDaysTitle> createState() => _WeekDaysTitleState();
 }
 
-class _WeekDaysBodyState extends State<WeekDaysBody> {
+class _WeekDaysTitleState extends State<WeekDaysTitle> {
 
-
+  //  initState from sharedpreferences method
   @override
   void initState() {
     super.initState();
     _loadtitle();
   }
 
+  //  load training name's data from the database using sharedpreferences
   _loadtitle() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
@@ -30,6 +35,7 @@ class _WeekDaysBodyState extends State<WeekDaysBody> {
     });
   }
 
+  //  allow string wrote by the user stored in the database with his specific data title
   _savetitle() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString(widget.dataBaseTitle, widget.trainingTitle.text);
@@ -38,7 +44,7 @@ class _WeekDaysBodyState extends State<WeekDaysBody> {
     });
   }
 
-
+  //  build method
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -82,6 +88,7 @@ class _WeekDaysBodyState extends State<WeekDaysBody> {
     );
   }
 
+  //  function showing the alertdialog allowing user the write his training name
   void _showEditDialog(BuildContext context) {
     showDialog(
       context: context,
@@ -112,4 +119,5 @@ class _WeekDaysBodyState extends State<WeekDaysBody> {
       }
     );
   }
+  
 }

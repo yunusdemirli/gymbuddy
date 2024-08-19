@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gymbuddy_github/homepage/homepage.dart';
 
+//  --- EXPLANATION ---
+//  this class show some containers providing informations to the users.
+//  -------------------
 class MorePage extends StatelessWidget {
   const MorePage({super.key});
 

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gymbuddy_github/exercicespage/pectorals_exercices.dart';
 
+//  --- EXPLANATION ---
+//  this class manages the exercices list column at the end of the exercices pages of the app,
+//  under the Custom Workouts carousel slider.
+//  -------------------
 class ExerciceCategoryList extends StatelessWidget {
   const ExerciceCategoryList({super.key,});
 
@@ -42,6 +46,10 @@ class ExerciceCategoryList extends StatelessWidget {
   }
 }
 
+//  --- EXPLANATION ---
+//  this class manages the extansiontile widget for each body muscle category of the
+//  exercices list.
+//  -------------------
 class ExpansionTileExercices extends StatelessWidget {
   final String expansionTileName;
   final Widget onTapWidget;
