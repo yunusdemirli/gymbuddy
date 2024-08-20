@@ -28,7 +28,7 @@ class ExerciceCategoryList extends StatelessWidget {
           ExpansionTileExercices(expansionTileName: 'Biceps', onTapWidget: Pectoralsexercices(), icon: Icon(Icons.abc, color: Colors.indigo,),),
       
           SizedBox(height: 20,),
-
+      
           ExpansionTileExercices(expansionTileName: 'Triceps', onTapWidget: Pectoralsexercices(), icon: Icon(Icons.abc, color: Colors.indigo,),),
       
           SizedBox(height: 20,),
@@ -36,7 +36,7 @@ class ExerciceCategoryList extends StatelessWidget {
           ExpansionTileExercices(expansionTileName: 'Legs', onTapWidget: Pectoralsexercices(), icon: Icon(Icons.abc, color: Colors.indigo,),),
       
           SizedBox(height: 20,),
-    
+          
           ExpansionTileExercices(expansionTileName: 'Abs', onTapWidget: Pectoralsexercices(), icon: Icon(Icons.abc, color: Colors.indigo,),),
       
           SizedBox(height: 20,),

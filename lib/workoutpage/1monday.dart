@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gymbuddy_github/_widgets/week_days_title.dart';
+import 'package:gymbuddy_github/workoutpage/choose_your_exercice.dart';
 
 class MondayTraining extends StatefulWidget {
   const MondayTraining({super.key});
@@ -48,7 +49,9 @@ class _MondayTrainingState extends State<MondayTraining> {
                         backgroundColor: Colors.white,
                         foregroundColor: Colors.indigo,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const ChooseYourExercicePage()));
+                      },
                       child: const Icon(Icons.add, size: 40,),
                     ),
                     const SizedBox(width: 50,)
