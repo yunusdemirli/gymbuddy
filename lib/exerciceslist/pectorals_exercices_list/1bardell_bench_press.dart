@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
 class BardellBenchPress extends StatelessWidget {
   const BardellBenchPress({super.key});
+
+  final String bardellBenchPressTitle = 'Bardell bench press';
+
+  Future<void> _saveInfo() async {
+    var box = Hive.box('myBox');
+    box.put('savedInfo', bardellBenchPressTitle);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +43,7 @@ class BardellBenchPress extends StatelessWidget {
             children: [
               const SizedBox(width: 25,),
 
-              const Text('Bardell bench press', style: TextStyle(fontSize: 22, color: Colors.indigo),),
+              Text(bardellBenchPressTitle, style: const TextStyle(fontSize: 22, color: Colors.indigo),),
               
               const Spacer(),
 
@@ -44,6 +52,7 @@ class BardellBenchPress extends StatelessWidget {
                 height: 60,
                 child: ElevatedButton(
                   onPressed: () {
+                    _saveInfo();
                   },
                   child: const Icon(Icons.add, size: 30),
                 ),

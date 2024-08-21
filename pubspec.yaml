@@ -11,6 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.7.0
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
   shared_preferences: ^2.3.2
   smooth_page_indicator: ^1.2.0+3
 

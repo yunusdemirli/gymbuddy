@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gymbuddy_github/_widgets/week_days_title.dart';
 import 'package:gymbuddy_github/workoutpage/choose_your_exercice.dart';
+import 'package:hive/hive.dart';
 
 class MondayTraining extends StatefulWidget {
   const MondayTraining({super.key});
@@ -14,6 +15,21 @@ class _MondayTrainingState extends State<MondayTraining> {
   final String _title1 = '';
   final String _dataBaseTitle1 = 'title1';
   final String _weekDayTraining1 = 'Monday';
+
+  String _displayedInfo = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _loadInfo();
+  }
+
+  Future<void> _loadInfo() async {
+    var box = Hive.box('myBox');
+    setState(() {
+      _displayedInfo = box.get('savedInfo', defaultValue: 'No information saved');
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +81,8 @@ class _MondayTrainingState extends State<MondayTraining> {
                 ),
 
                 const SizedBox(height: 25,),
+
+                Text(_displayedInfo),
               ],
             ),
           ),

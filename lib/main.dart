@@ -4,8 +4,12 @@ import 'package:gymbuddy_github/homepage/homepage.dart';
 //  this flutter project use 2 kind of local data storage :
 //  - hive storage => for complex data storage like exercices
 //  - sharedpreferences storage => for simple data storage like week days titles
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  await Hive.openBox('myBox');
   //initialise Hive data storage system for complex data
   runApp(const MainApp());
 }
