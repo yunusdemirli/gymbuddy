@@ -1,5 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart' hide CarouselController;
+import 'package:flutter/material.dart';
 import 'package:gymbuddy_github/_widgets/workout_carousel_slider.dart';
 
 class WorkoutPage extends StatefulWidget {
@@ -11,7 +11,7 @@ class WorkoutPage extends StatefulWidget {
 
 class _WorkoutPageState extends State<WorkoutPage> {
 
-  final CarouselController carouselController = CarouselController();
+  final CarouselSliderController carouselSliderController = CarouselSliderController();
   
 
   @override
@@ -29,7 +29,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
 
                 IconButton(
                   onPressed: () {
-                    carouselController.previousPage(
+                    carouselSliderController.previousPage(
                       curve: Curves.easeIn,
                     );
                   },
@@ -45,7 +45,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
 
                 IconButton(
                   onPressed: () {
-                    carouselController.nextPage(
+                    carouselSliderController.nextPage(
                       curve: Curves.easeIn,
                     );
                   },
@@ -59,7 +59,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
 
           const SizedBox(height: 75,),
 
-          MyCarouselslider(mycarouselController: carouselController,),
+          MyCarouselslider(mycarouselSliderController: carouselSliderController,),
           
           const SizedBox(height: 35,),
 

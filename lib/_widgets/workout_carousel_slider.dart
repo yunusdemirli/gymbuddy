@@ -1,5 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart' hide CarouselController;
+import 'package:flutter/material.dart';
 import 'package:gymbuddy_github/main.dart';
 import 'package:gymbuddy_github/workoutpage/list_of_workout.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -9,8 +9,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 //  -------------------
 class MyCarouselslider extends StatefulWidget {
 
-  final CarouselController mycarouselController;
-  const MyCarouselslider({super.key, required this.mycarouselController});
+  final CarouselSliderController mycarouselSliderController;
+  const MyCarouselslider({super.key, required this.mycarouselSliderController});
 
   @override
   State<MyCarouselslider> createState() => _MyCarouselsliderState();
@@ -162,7 +162,7 @@ class _MyCarouselsliderState extends State<MyCarouselslider> with RouteAware {
         enlargeCenterPage: true,
         initialPage: weekday - 1,
       ),
-      carouselController: widget.mycarouselController,
+      carouselController: widget.mycarouselSliderController,
     );
   }
   //  --- end of the build method ---
