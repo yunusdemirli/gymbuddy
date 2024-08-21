@@ -1,5 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide CarouselController;
 import 'package:gymbuddy_github/main.dart';
 import 'package:gymbuddy_github/workoutpage/list_of_workout.dart';
 import 'package:shared_preferences/shared_preferences.dart';

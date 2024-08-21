@@ -67,7 +67,7 @@ class _MondayTrainingState extends State<MondayTraining> {
                 const SizedBox(height: 25,),
               ],
             ),
-          )
+          ),
         ]
       ),
     );

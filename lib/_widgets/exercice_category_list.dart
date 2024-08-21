@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gymbuddy_github/exercicespage/pectorals_exercices.dart';
+import 'package:gymbuddy_github/exerciceslist/pectorals_exercices_list/pectorals_exercices_list.dart';
 
 //  --- EXPLANATION ---
 //  this class manages the exercices list column at the end of the exercices pages of the app,
@@ -13,31 +13,31 @@ class ExerciceCategoryList extends StatelessWidget {
     return const Center(
       child: Column(
         children: [
-          ExpansionTileExercices(expansionTileName: 'Pectorals', onTapWidget: Pectoralsexercices(), icon: Icon(Icons.abc, color: Colors.indigo,),),
+          ExpansionTileExercices(expansionTileName: 'Pectorals', onTapWidget: PectoralsexercicesList(), icon: Icon(Icons.abc, color: Colors.indigo,),),
       
           SizedBox(height: 20,),
       
-          ExpansionTileExercices(expansionTileName: 'Deltoid', onTapWidget: Pectoralsexercices(), icon: Icon(Icons.abc, color: Colors.indigo,),),
+          ExpansionTileExercices(expansionTileName: 'Deltoid', onTapWidget: PectoralsexercicesList(), icon: Icon(Icons.abc, color: Colors.indigo,),),
       
           SizedBox(height: 20,),
       
-          ExpansionTileExercices(expansionTileName: 'Dorsals', onTapWidget: Pectoralsexercices(), icon: Icon(Icons.abc, color: Colors.indigo,),),
+          ExpansionTileExercices(expansionTileName: 'Dorsals', onTapWidget: PectoralsexercicesList(), icon: Icon(Icons.abc, color: Colors.indigo,),),
       
           SizedBox(height: 20,),
       
-          ExpansionTileExercices(expansionTileName: 'Biceps', onTapWidget: Pectoralsexercices(), icon: Icon(Icons.abc, color: Colors.indigo,),),
+          ExpansionTileExercices(expansionTileName: 'Biceps', onTapWidget: PectoralsexercicesList(), icon: Icon(Icons.abc, color: Colors.indigo,),),
       
           SizedBox(height: 20,),
       
-          ExpansionTileExercices(expansionTileName: 'Triceps', onTapWidget: Pectoralsexercices(), icon: Icon(Icons.abc, color: Colors.indigo,),),
+          ExpansionTileExercices(expansionTileName: 'Triceps', onTapWidget: PectoralsexercicesList(), icon: Icon(Icons.abc, color: Colors.indigo,),),
       
           SizedBox(height: 20,),
       
-          ExpansionTileExercices(expansionTileName: 'Legs', onTapWidget: Pectoralsexercices(), icon: Icon(Icons.abc, color: Colors.indigo,),),
+          ExpansionTileExercices(expansionTileName: 'Legs', onTapWidget: PectoralsexercicesList(), icon: Icon(Icons.abc, color: Colors.indigo,),),
       
           SizedBox(height: 20,),
           
-          ExpansionTileExercices(expansionTileName: 'Abs', onTapWidget: Pectoralsexercices(), icon: Icon(Icons.abc, color: Colors.indigo,),),
+          ExpansionTileExercices(expansionTileName: 'Abs', onTapWidget: PectoralsexercicesList(), icon: Icon(Icons.abc, color: Colors.indigo,),),
       
           SizedBox(height: 20,),
         ],

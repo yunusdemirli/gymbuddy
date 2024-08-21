@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide CarouselController;
 import 'package:gymbuddy_github/_widgets/exercice_category_list.dart';
+import 'package:gymbuddy_github/workoutpage/choose_your_exercice.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 //  --- EXPLANATION ---
@@ -71,7 +72,12 @@ class _ExercicesPageState extends State<ExercicesPage> {
 
               const Spacer(),
 
-              TextButton(onPressed: () {const ExerciceCategoryList();}, child: const Text('see all'),),
+              TextButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const ChooseYourExercicePage() ));
+                },
+                child: const Text('see all'),
+              ),
 
               const SizedBox(width: 5,),
             ],

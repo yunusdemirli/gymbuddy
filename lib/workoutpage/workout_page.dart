@@ -1,5 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide CarouselController;
 import 'package:gymbuddy_github/_widgets/workout_carousel_slider.dart';
 
 class WorkoutPage extends StatefulWidget {
