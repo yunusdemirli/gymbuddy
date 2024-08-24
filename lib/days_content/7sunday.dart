@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gymbuddy_github/_widgets/week_days_title.dart';
+import 'package:gymbuddy_github/_days_widgets/week_days_title.dart';
 
 class SundayTraining extends StatefulWidget {
   const SundayTraining({super.key});

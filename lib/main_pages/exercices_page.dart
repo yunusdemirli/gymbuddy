@@ -1,7 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:gymbuddy_github/_widgets/exercice_category_list.dart';
-import 'package:gymbuddy_github/workoutpage/choose_your_exercice.dart';
+import 'package:gymbuddy_github/_exercices_list_widgets/custom_workouts_slider.dart';
+import 'package:gymbuddy_github/_exercices_list_widgets/exercice_category_list.dart';
+import 'package:gymbuddy_github/_exercices_list_widgets/choose_your_exercice.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 //  --- EXPLANATION ---
@@ -104,30 +105,3 @@ class _ExercicesPageState extends State<ExercicesPage> {
   );
 }
 
-//  --- EXPLANATION ---
-//  this class manages the containers of the carousel slider in the upper part
-//  of this page.
-//  -------------------
-class CarouselContainer extends StatelessWidget {
-  final Color mycolor;
-  const CarouselContainer({super.key, required this.mycolor});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        boxShadow: [
-        BoxShadow(
-          color: Colors.black.withOpacity(0.3),
-          spreadRadius: 5,
-          blurRadius: 10,
-          offset: const Offset(0, 1),
-        ),
-      ],
-        color: mycolor,
-        borderRadius: BorderRadius.circular(20)
-      ),
-    );
-  }
-}

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gymbuddy_github/_widgets/exercice_category_list.dart';
+import 'package:gymbuddy_github/_exercices_list_widgets/exercice_category_list.dart';
 
 class ChooseYourExercicePage extends StatelessWidget {
   const ChooseYourExercicePage({super.key});

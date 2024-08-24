@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gymbuddy_github/exerciceslist/pectorals_exercices_list/pectorals_exercices_list.dart';
+import 'package:gymbuddy_github/exercices_list/pectorals_exercices_list/pectorals_exercices_list.dart';
 
 //  --- EXPLANATION ---
 //  this class manages the exercices list column at the end of the exercices pages of the app,

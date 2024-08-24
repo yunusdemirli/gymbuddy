@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gymbuddy_github/morepage/more_page.dart';
-import 'package:gymbuddy_github/exercicespage/exercices_page.dart';
-import 'package:gymbuddy_github/workoutpage/workout_page.dart';
+import 'package:gymbuddy_github/main_pages/more_page.dart';
+import 'package:gymbuddy_github/main_pages/exercices_page.dart';
+import 'package:gymbuddy_github/main_pages/workout_page.dart';
 
 //  --- EXPLANATION ---
 //  this class is the homepage and manages the structure of the app by providing

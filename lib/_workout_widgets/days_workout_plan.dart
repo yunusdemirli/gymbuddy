@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:gymbuddy_github/workoutpage/1monday.dart';
-import 'package:gymbuddy_github/workoutpage/2tuesday.dart';
-import 'package:gymbuddy_github/workoutpage/3wednesday.dart';
-import 'package:gymbuddy_github/workoutpage/4thursday.dart';
-import 'package:gymbuddy_github/workoutpage/5friday.dart';
-import 'package:gymbuddy_github/workoutpage/6saturday.dart';
-import 'package:gymbuddy_github/workoutpage/7sunday.dart';
+import 'package:gymbuddy_github/days_content/1monday.dart';
+import 'package:gymbuddy_github/days_content/2tuesday.dart';
+import 'package:gymbuddy_github/days_content/3wednesday.dart';
+import 'package:gymbuddy_github/days_content/4thursday.dart';
+import 'package:gymbuddy_github/days_content/5friday.dart';
+import 'package:gymbuddy_github/days_content/6saturday.dart';
+import 'package:gymbuddy_github/days_content/7sunday.dart';
 
 class ListOfWorkout extends StatelessWidget {
 

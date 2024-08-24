@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gymbuddy_github/_widgets/week_days_title.dart';
-import 'package:gymbuddy_github/workoutpage/choose_your_exercice.dart';
+import 'package:gymbuddy_github/_days_widgets/week_days_title.dart';
+import 'package:gymbuddy_github/_exercices_list_widgets/choose_your_exercice.dart';
 
 class TuesdayTraining extends StatefulWidget {
   const TuesdayTraining({super.key});

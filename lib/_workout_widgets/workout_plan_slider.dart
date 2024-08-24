@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:gymbuddy_github/main.dart';
-import 'package:gymbuddy_github/workoutpage/list_of_workout.dart';
+import 'package:gymbuddy_github/_workout_widgets/days_workout_plan.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 //  --- EXPLANATION ---
@@ -64,7 +64,6 @@ class _MyCarouselsliderState extends State<MyCarouselslider> with RouteAware {
   }
   @override
   void didPopNext() {
-    // This method is called when the page comes back into view after popping.
     _loadTrainingTitle(); // refresh the data
   }
   //  --- end of the route observer method  ---

@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:gymbuddy_github/_widgets/workout_carousel_slider.dart';
+import 'package:gymbuddy_github/_workout_widgets/workout_plan_slider.dart';
 
 class WorkoutPage extends StatefulWidget {
   const WorkoutPage({super.key});

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gymbuddy_github/exerciceslist/pectorals_exercices_list/1bardell_bench_press.dart';
+import 'package:gymbuddy_github/exercices_list/pectorals_exercices_list/1bardell_bench_press.dart';
 
 //  --- EXPLANATION ---
 //  this class manages the list of exercices for pectorals category.
