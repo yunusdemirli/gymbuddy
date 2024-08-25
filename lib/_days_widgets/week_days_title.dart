@@ -44,6 +44,38 @@ class _WeekDaysTitleState extends State<WeekDaysTitle> {
     });
   }
 
+  //  function showing the alertdialog allowing user the write his training name
+  void _showEditDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Edit training title'),
+          content: TextField(
+            controller: widget.trainingTitle,
+            autofocus: true,
+            decoration: const InputDecoration(hintText: 'Enter your training title'),
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();  
+              },
+              child: const Text("Cancel")
+            ),
+            TextButton(
+              onPressed: () {
+                _savetitle();
+                Navigator.of(context).pop();  
+              },
+              child: const Text("Save")
+            ),
+          ],
+        );
+      }
+    );
+  }
+
   //  build method
   @override
   Widget build(BuildContext context) {
@@ -87,37 +119,4 @@ class _WeekDaysTitleState extends State<WeekDaysTitle> {
       ],
     );
   }
-
-  //  function showing the alertdialog allowing user the write his training name
-  void _showEditDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('Edit training title'),
-          content: TextField(
-            controller: widget.trainingTitle,
-            autofocus: true,
-            decoration: const InputDecoration(hintText: 'Enter your training title'),
-          ),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();  
-              },
-              child: const Text("Cancel")
-            ),
-            TextButton(
-              onPressed: () {
-                _savetitle();
-                Navigator.of(context).pop();  
-              },
-              child: const Text("Save")
-            ),
-          ],
-        );
-      }
-    );
-  }
-  
 }

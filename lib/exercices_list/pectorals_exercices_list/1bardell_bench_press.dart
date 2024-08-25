@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gymbuddy_github/_exercices_list_widgets/add_exercice_box.dart';
 
 class BardellBenchPress extends StatefulWidget {
   const BardellBenchPress({super.key});
@@ -9,6 +10,13 @@ class BardellBenchPress extends StatefulWidget {
 
 class _BardellBenchPressState extends State<BardellBenchPress> {
   final String bardellBenchPressTitle = 'Bardell bench press';
+
+  void createNewExercice () {
+    showDialog(
+      context: context,
+      builder: (context) => const AddExerciceBox()
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,6 +59,7 @@ class _BardellBenchPressState extends State<BardellBenchPress> {
                 height: 60,
                 child: ElevatedButton(
                   onPressed: () {
+                    createNewExercice();
                   },
                   child: const Icon(Icons.add, size: 30),
                 ),

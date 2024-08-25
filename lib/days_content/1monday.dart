@@ -68,6 +68,27 @@ class _MondayTrainingState extends State<MondayTraining> {
 
                 const SizedBox(height: 25,),
 
+                /*ListView.builder(
+                  itemBuilder: itemBuilder
+                ),*/
+
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.indigo[200],
+                  ),
+                  padding: const EdgeInsets.all(10),
+                  margin: const EdgeInsets.all(10),
+                  width: 350,
+                  child: Row(
+                    children: [
+                      Checkbox(value: false, onChanged: (value) {} ),
+                      const Text('data', style: TextStyle(color: Colors.black),),
+                    ],
+                  ),
+                ),
+
+
               ],
             ),
           ),
