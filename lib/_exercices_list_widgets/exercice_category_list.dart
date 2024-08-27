@@ -13,32 +13,33 @@ class ExerciceCategoryList extends StatelessWidget {
     return const Center(
       child: Column(
         children: [
+
+          //  pectorals exercices
           ExpansionTileExercices(expansionTileName: 'Pectorals', onTapWidget: PectoralsexercicesList(), icon: Icon(Icons.abc, color: Colors.indigo,),),
-      
           SizedBox(height: 20,),
-      
+
+          //  deltoid exercices
           ExpansionTileExercices(expansionTileName: 'Deltoid', onTapWidget: PectoralsexercicesList(), icon: Icon(Icons.abc, color: Colors.indigo,),),
-      
           SizedBox(height: 20,),
-      
+
+          //  dorsals exercices
           ExpansionTileExercices(expansionTileName: 'Dorsals', onTapWidget: PectoralsexercicesList(), icon: Icon(Icons.abc, color: Colors.indigo,),),
-      
           SizedBox(height: 20,),
-      
+
+          //  biceps exercices
           ExpansionTileExercices(expansionTileName: 'Biceps', onTapWidget: PectoralsexercicesList(), icon: Icon(Icons.abc, color: Colors.indigo,),),
-      
           SizedBox(height: 20,),
-      
+
+          //  triceps exercices
           ExpansionTileExercices(expansionTileName: 'Triceps', onTapWidget: PectoralsexercicesList(), icon: Icon(Icons.abc, color: Colors.indigo,),),
-      
           SizedBox(height: 20,),
-      
+
+          //  legs exercices
           ExpansionTileExercices(expansionTileName: 'Legs', onTapWidget: PectoralsexercicesList(), icon: Icon(Icons.abc, color: Colors.indigo,),),
-      
           SizedBox(height: 20,),
-          
+
+          //  abs exercices
           ExpansionTileExercices(expansionTileName: 'Abs', onTapWidget: PectoralsexercicesList(), icon: Icon(Icons.abc, color: Colors.indigo,),),
-      
           SizedBox(height: 20,),
         ],
       ),

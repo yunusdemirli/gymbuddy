@@ -7,11 +7,17 @@ import 'package:gymbuddy_github/days_content/5friday.dart';
 import 'package:gymbuddy_github/days_content/6saturday.dart';
 import 'package:gymbuddy_github/days_content/7sunday.dart';
 
-class ListOfWorkout extends StatelessWidget {
+//  --- EXPLANATION ---
+//  this class creates a Scaffold with an appbar and a body. The body shows the day's
+//  workout that user selected in the carouselcontainer by using selectedDay variable
+//  -------------------
+// ignore: must_be_immutable
+class DaysWorkoutPlan extends StatelessWidget {
 
   final String selectedDay;
-  const ListOfWorkout({super.key, required this.selectedDay});
+  const DaysWorkoutPlan({super.key, required this.selectedDay});
 
+  //  show the day selected by using a switch method with the key word selectedDay
   Widget getDayContent() {
     switch (selectedDay) {
       case "Monday":

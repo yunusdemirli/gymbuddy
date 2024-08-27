@@ -9,13 +9,28 @@ class BardellBenchPress extends StatefulWidget {
 }
 
 class _BardellBenchPressState extends State<BardellBenchPress> {
+  final TextEditingController _repetitions = TextEditingController();
+  final TextEditingController _timer = TextEditingController();
   final String bardellBenchPressTitle = 'Bardell bench press';
 
+  //  create new exercice
   void createNewExercice () {
     showDialog(
       context: context,
-      builder: (context) => const AddExerciceBox()
+      builder: (context) {
+        return AddExerciceBox(
+          onSave: saveNewExercice,
+          onCancel: Navigator.of(context).pop,
+        );
+      }
     );
+  }
+
+  //  save new exercice
+  void saveNewExercice() {
+    setState(() {
+
+    });
   }
 
   @override
@@ -83,66 +98,6 @@ class _BardellBenchPressState extends State<BardellBenchPress> {
 
           const SizedBox(height: 50),
 
-          Container(
-            height: 100,
-            width: 300,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: Colors.indigo,
-            ),
-            child: const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  Text('Step 1 : Starting position', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
-                  Text('Begin in a plank position. Place your hands directly under your shoulders, with your arms fully extended.', style: TextStyle(color: Colors.white,),),
-                ],
-              ),
-            )
-          ),
-
-          const SizedBox(height: 50),
-
-          Container(
-            width: 300,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: Colors.indigo,
-            ),
-            child: const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  Text('Step 2 : Movement\n',style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
-                  Text('1) Lift your right foot off the floor and drive your right knee towards your chest as far as you can.\n', style: TextStyle(color: Colors.white),),
-                  Text('2) Quickly switch legs, bringing your right foot back to the starting position and simultaneously bringing your left knee towards your chest.\n', style: TextStyle(color: Colors.white),),
-                  Text('3) Continue to alternate legs in a smooth, controlled manner. It should feel like you are “running” in place while maintaining the plank position.\n', style: TextStyle(color: Colors.white),),
-                ],
-              ),
-            )
-          ),
-
-          const SizedBox(height: 50),
-
-          Container(
-            width: 300,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: Colors.indigo,
-            ),
-            child: const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  Text('Step 3 : Breathing\n', style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
-                  Text('Maintain a steady breathing pattern. Inhale and exhale naturally, trying not to hold your breath.\n', style: TextStyle(color: Colors.white),),
-                ],
-              ),
-            )
-          ),
-
-          //---
-          const SizedBox(height: 50),
           ],
         ),
       )

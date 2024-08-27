@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gymbuddy_github/_days_widgets/week_days_title.dart';
 import 'package:gymbuddy_github/_exercices_list_widgets/choose_your_exercice.dart';
+import 'package:gymbuddy_github/_exercices_list_widgets/exercice_container.dart';
 
 class MondayTraining extends StatefulWidget {
   const MondayTraining({super.key});
@@ -11,10 +12,17 @@ class MondayTraining extends StatefulWidget {
 
 class _MondayTrainingState extends State<MondayTraining> {
 
+  //  variables required
   final TextEditingController _trainingTitle1 = TextEditingController();
   final String _title1 = '';
   final String _dataBaseTitle1 = 'title1';
   final String _weekDayTraining1 = 'Monday';
+
+  List<String> mondayExercices = [
+    "data1",
+    "data2",
+    "data3",
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +30,8 @@ class _MondayTrainingState extends State<MondayTraining> {
     return SingleChildScrollView(
       child: Column(
         children: [
-      
+          
+          //  create title part of the page
           WeekDaysTitle(
             trainingTitle: _trainingTitle1,
             title: _title1,
@@ -32,6 +41,7 @@ class _MondayTrainingState extends State<MondayTraining> {
       
           const SizedBox(height: 25,),
       
+          //  container allows to add exercices and show them
           Container(
             margin: const EdgeInsets.all(7),
             padding: const EdgeInsets.all(5),
@@ -40,8 +50,11 @@ class _MondayTrainingState extends State<MondayTraining> {
               borderRadius: BorderRadius.circular(20),
             ),
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 const SizedBox(height: 15,),
+
+                //  add exercices button
                 Row(
                   children: [
                     const Text('   Add exercices', style: TextStyle(fontSize: 23, color: Colors.white, fontWeight: FontWeight.bold),),
@@ -59,39 +72,31 @@ class _MondayTrainingState extends State<MondayTraining> {
                     const SizedBox(width: 50,)
                   ],
                 ),
-
+                      
                 const SizedBox(height: 15,),
 
+                //  divider    
                 const Divider(
                   color: Colors.white,
                 ),
-
+                      
                 const SizedBox(height: 25,),
 
-                /*ListView.builder(
-                  itemBuilder: itemBuilder
-                ),*/
-
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.indigo[200],
-                  ),
-                  padding: const EdgeInsets.all(10),
-                  margin: const EdgeInsets.all(10),
-                  width: 350,
-                  child: Row(
-                    children: [
-                      Checkbox(value: false, onChanged: (value) {} ),
-                      const Text('data', style: TextStyle(color: Colors.black),),
-                    ],
+                //  list of exercices added
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.5,
+                  child: ListView.builder(
+                    itemCount: mondayExercices.length,
+                    itemBuilder: (context, index) {
+                      return ExerciceContainer(containerName: mondayExercices[index]);
+                    }
                   ),
                 ),
-
 
               ],
             ),
           ),
+      
         ]
       ),
     );

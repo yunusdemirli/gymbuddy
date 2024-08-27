@@ -126,12 +126,13 @@ class _MyCarouselsliderState extends State<MyCarouselslider> with RouteAware {
       "Sunday"
     ];
 
+    //  return the slider
     return CarouselSlider(
       
       items: List.generate(days.length, (index) {
         return GestureDetector(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => ListOfWorkout(selectedDay: days[index],)));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => DaysWorkoutPlan(selectedDay: days[index],)));
           },
           child: Container(
             height: 350,
@@ -146,16 +147,18 @@ class _MyCarouselsliderState extends State<MyCarouselslider> with RouteAware {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                //  day's name
                 Text(days[index], style: const TextStyle(color: Colors.white, fontSize: 25,),),
                 const Divider(height: 10, color: Colors.white,),
                 const SizedBox(height: 25,),
+                //  column with workout content (like the title, exercices, etc.)
                 weekdayscontainer[index],
               ],
             )
           ),
         );
-              
       }).toList(),
+
       options: CarouselOptions(
         height: 350,
         enlargeCenterPage: true,
@@ -164,5 +167,5 @@ class _MyCarouselsliderState extends State<MyCarouselslider> with RouteAware {
       carouselController: widget.mycarouselSliderController,
     );
   }
-  //  --- end of the build method ---
+  
 }

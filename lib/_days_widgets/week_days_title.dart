@@ -7,11 +7,20 @@ import 'package:shared_preferences/shared_preferences.dart';
 //  -------------------
 // ignore: must_be_immutable
 class WeekDaysTitle extends StatefulWidget {
+  
+  //  variables
   TextEditingController trainingTitle = TextEditingController();
   String title = '';              //  default title of the training
   String dataBaseTitle = '';      //  database name
   String weekDayTraining = '';    //  day of the week for each training
-  WeekDaysTitle({super.key, required this.trainingTitle, required this.title, required this.dataBaseTitle, required this.weekDayTraining});
+
+  WeekDaysTitle({
+    super.key,
+    required this.trainingTitle,
+    required this.title,
+    required this.dataBaseTitle,
+    required this.weekDayTraining
+  });
 
   @override
   State<WeekDaysTitle> createState() => _WeekDaysTitleState();
@@ -19,7 +28,7 @@ class WeekDaysTitle extends StatefulWidget {
 
 class _WeekDaysTitleState extends State<WeekDaysTitle> {
 
-  //  initState from sharedpreferences method
+  //  initState sharedpreferences method
   @override
   void initState() {
     super.initState();
@@ -57,12 +66,16 @@ class _WeekDaysTitleState extends State<WeekDaysTitle> {
             decoration: const InputDecoration(hintText: 'Enter your training title'),
           ),
           actions: <Widget>[
+            
+            //  cancel button
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();  
               },
               child: const Text("Cancel")
             ),
+
+            //  save button
             TextButton(
               onPressed: () {
                 _savetitle();
@@ -70,6 +83,7 @@ class _WeekDaysTitleState extends State<WeekDaysTitle> {
               },
               child: const Text("Save")
             ),
+            
           ],
         );
       }
@@ -82,12 +96,15 @@ class _WeekDaysTitleState extends State<WeekDaysTitle> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+
         const SizedBox(height: 20,),
 
+        //  training day
         Text('  ${widget.weekDayTraining} Training', style: const TextStyle(fontSize: 25, color: Colors.indigo),),
 
         const SizedBox(height: 15,),
 
+        //  custom training title
         Row(
           children: [
 
@@ -108,6 +125,7 @@ class _WeekDaysTitleState extends State<WeekDaysTitle> {
               },
               icon: const Icon(Icons.edit, color: Colors.indigo,)
             )
+            
           ],
         ),
 
