@@ -13,7 +13,7 @@ class _BardellBenchPressState extends State<BardellBenchPress> {
   final TextEditingController _timer = TextEditingController();
   final String bardellBenchPressTitle = 'Bardell bench press';
 
-  //  create new exercice
+  //  create new exerciceee
   void createNewExercice () {
     showDialog(
       context: context,
