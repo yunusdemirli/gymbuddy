@@ -1,12 +1,20 @@
 //required packages--------------------------------------------------------------------------
 import 'package:flutter/material.dart';
-import 'package:gymbuddy_github/pages/Workout/exercices_category/abdos/abdos_exercices/abs_exercice1.dart';
+import 'package:gymbuddy_github/_data/DataBase.dart';
 import 'package:gymbuddy_github/pages/Workout/exercices_category/abdos/abdos_exercices/abs_exercice2.dart';
 //-------------------------------------------------------------------------------------------
 
 //ABDOS CLASS--------------------------------------------------------------------------------
 class Abdos extends StatefulWidget {
-  const Abdos({super.key});
+  final String name;
+  final DataBase db;
+  final List<Map<String, String>> exercises;
+
+  const Abdos(
+      {super.key,
+      required this.name,
+      required this.db,
+      required this.exercises});
 
   @override
   State<Abdos> createState() => _AbdosState();
@@ -14,10 +22,7 @@ class Abdos extends StatefulWidget {
 
 class _AbdosState extends State<Abdos> {
   //method go to first ----------------------------------------------------------------------
-  void firstexercice() {
-    Navigator.pop(context,
-        {'name': 'Mountain Climber', 'image': 'assets/mountain_climber.jpg'});
-  }
+
   //-----------------------------------------------------------------------------------------
 
   //method go to first ----------------------------------------------------------------------
@@ -31,7 +36,16 @@ class _AbdosState extends State<Abdos> {
 
   //method build-----------------------------------------------------------------------------
   @override
+  final String exo = "mountain climber";
+  final String im = "assets/mountain_climber.jpg";
+  @override
   Widget build(BuildContext context) {
+    final List<Map<String, String>> exercices = widget.exercises;
+
+    void firstexercice() {
+      Navigator.pop(context, {});
+    }
+
     return SizedBox(
       height: 400,
       child: Column(
@@ -45,7 +59,14 @@ class _AbdosState extends State<Abdos> {
             title: const Text('Mountain Climber'),
             subtitle: const Text('Exercice 1'),
             trailing: const Icon(Icons.add),
-            onTap: firstexercice,
+            onTap: () async {
+              Navigator.pop(context, {
+                setState(() {
+                  exercices.add({"Exercice": exo, "Image": im});
+                }),
+                widget.db.UpdateData(),
+              });
+            },
           ),
           //----------
 

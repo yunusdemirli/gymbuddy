@@ -103,7 +103,7 @@ class _WorkoutState extends State<Workout> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => PageExercices(
-                        Name: ListOfWorkout[index],
+                        name: ListOfWorkout[index],
                         db: widget.db,
                       ),
                     ),

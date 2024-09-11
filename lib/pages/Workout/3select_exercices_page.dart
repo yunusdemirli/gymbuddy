@@ -1,5 +1,6 @@
 //import required packages---------------------------------------------------------------
 import 'package:flutter/material.dart';
+import 'package:gymbuddy_github/_data/DataBase.dart';
 import 'package:gymbuddy_github/pages/Workout/exercices_category/abdos/abdos_page.dart';
 import 'package:gymbuddy_github/pages/Workout/exercices_category/biceps_triceps/biceps_triceps_page.dart';
 import 'package:gymbuddy_github/pages/Workout/exercices_category/deltoid.dart';
@@ -10,7 +11,16 @@ import 'package:gymbuddy_github/pages/Workout/exercices_category/legs.dart';
 //---------------------------------------------------------------------------------------
 
 class ExercicesPage extends StatefulWidget {
-  const ExercicesPage({super.key});
+  final String name;
+  final DataBase db;
+  final List<Map<String, String>> exercises;
+
+  const ExercicesPage({
+    super.key,
+    required this.name,
+    required this.db,
+    required this.exercises,
+  });
 
   @override
   State<ExercicesPage> createState() => _ExercicesPageState();
@@ -20,6 +30,8 @@ class _ExercicesPageState extends State<ExercicesPage> {
   //method build-------------------------------------------------------------------------
   @override
   Widget build(BuildContext context) {
+    final String name = widget.name;
+    final List<Map<String, String>> exercises = widget.exercises;
     return Scaffold(
 
         //app bar------------------------------------------------------------------------------
@@ -91,8 +103,12 @@ class _ExercicesPageState extends State<ExercicesPage> {
                   )),
                   leading: ClipOval(
                       child: Image.asset('assets/mountain_climber.jpg')),
-                  children: const [
-                    Abdos(),
+                  children: [
+                    Abdos(
+                      name: name,
+                      db: widget.db,
+                      exercises: exercises,
+                    ),
                   ],
                 ),
 

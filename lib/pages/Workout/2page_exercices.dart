@@ -11,12 +11,12 @@ import 'package:gymbuddy_github/pages/Workout/componants.dart';
 //PAGE EXERCICES CLASS-------------------------------------------------------------------
 class PageExercices extends StatefulWidget {
   //import required variables------------------------------------------------------------
-  final String Name;
+  final String name;
   final DataBase db;
 
   const PageExercices({
     super.key,
-    required this.Name,
+    required this.name,
     required this.db,
   });
   //-------------------------------------------------------------------------------------
@@ -27,7 +27,7 @@ class PageExercices extends StatefulWidget {
 
 class _PageExercicesState extends State<PageExercices> {
   //import required variables------------------------------------------------------------
-  late List<Map<String, String>> Exercises;
+  late List<Map<String, String>> exercises;
   late String name;
   //-------------------------------------------------------------------------------------
 
@@ -35,15 +35,15 @@ class _PageExercicesState extends State<PageExercices> {
   @override
   void initState() {
     super.initState();
-    name = widget.Name;
-    Exercises = widget.db.WorkoutList[name] ?? [];
+    name = widget.name;
+    exercises = widget.db.WorkoutList[name] ?? [];
   }
   //-------------------------------------------------------------------------------------
 
   //function to add exercice-------------------------------------------------------------
   void AddExercice(String name, String image) {
     setState(() {
-      Exercises.add({name: image});
+      exercises.add({name: image});
     });
     widget.db.UpdateData();
   }
@@ -52,7 +52,7 @@ class _PageExercicesState extends State<PageExercices> {
   //function to delete exercice----------------------------------------------------------
   void DeleteExercice(int index) {
     setState(() {
-      Exercises.removeAt(index);
+      exercises.removeAt(index);
     });
     widget.db.UpdateData();
   }
@@ -76,20 +76,18 @@ class _PageExercicesState extends State<PageExercices> {
             }
           });
         },*/
-        onPressed: () async {
+        onPressed: () {
           // Navigate to the page to select the exercise
-          final selectedExercise = await Navigator.push(
+          Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const ExercicesPage(),
+              builder: (context) => ExercicesPage(
+                name: widget.name,
+                db: widget.db,
+                exercises: exercises,
+              ),
             ),
           );
-
-          // Check if exercise is selected
-          if (selectedExercise != null) {
-            // Add the selected exercise
-            AddExercice(selectedExercise['name'], selectedExercise['image']);
-          }
         },
       ),
       //---------------------------------------------------------------------------------
@@ -122,18 +120,18 @@ class _PageExercicesState extends State<PageExercices> {
         children: [
           Expanded(
             child: ListView.builder(
-              itemCount: Exercises.length,
+              itemCount: exercises.length,
               itemBuilder: (context, index) {
                 return LittleWorkout(
                   LittleWorkoutName:
-                      Exercises[index]['Exercice'] ?? 'Default Exercise Name',
+                      exercises[index]['Exercice'] ?? 'Default Exercise Name',
                   deletelt: (context) => DeleteExercice(index),
                   tap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => ValeurExercice(
-                          exo: Exercises[index]['Exercice'] ??
+                          exo: exercises[index]['Exercice'] ??
                               'Default Exercise Name',
                           db: widget.db,
                           Workout: name,
@@ -142,7 +140,7 @@ class _PageExercicesState extends State<PageExercices> {
                     );
                   },
                   imagePath:
-                      Exercises[index]['Image'] ?? 'Default Exercise Name',
+                      exercises[index]['Image'] ?? 'Default Exercise Name',
                 );
               },
             ),
