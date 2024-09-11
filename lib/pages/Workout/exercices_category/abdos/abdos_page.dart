@@ -15,10 +15,8 @@ class Abdos extends StatefulWidget {
 class _AbdosState extends State<Abdos> {
   //method go to first ----------------------------------------------------------------------
   void firstexercice() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const AbdosExercice1()),
-    );
+    Navigator.pop(context,
+        {'name': 'Mountain Climber', 'image': 'assets/mountain_climber.jpg'});
   }
   //-----------------------------------------------------------------------------------------
 
@@ -46,7 +44,7 @@ class _AbdosState extends State<Abdos> {
             leading: const Icon(Icons.list),
             title: const Text('Mountain Climber'),
             subtitle: const Text('Exercice 1'),
-            trailing: const Icon(Icons.arrow_forward),
+            trailing: const Icon(Icons.add),
             onTap: firstexercice,
           ),
           //----------

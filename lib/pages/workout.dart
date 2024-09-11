@@ -16,7 +16,8 @@ class Workout extends StatefulWidget {
 }
 
 class _WorkoutState extends State<Workout> {
-  final CarouselController _carouselController = CarouselController();
+  final CarouselSliderController _carouselController =
+      CarouselSliderController();
   late List<String> ListOfWorkout;
   final List<String> _days = [
     "Monday",
@@ -134,7 +135,7 @@ class _WorkoutState extends State<Workout> {
             options: CarouselOptions(
               height: 350,
               enlargeCenterPage: true,
-              initialPage: weekday,
+              initialPage: weekday - 1,
             ),
             carouselController: _carouselController,
           ),
