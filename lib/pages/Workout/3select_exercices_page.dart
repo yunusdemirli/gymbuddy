@@ -103,12 +103,8 @@ class _ExercicesPageState extends State<ExercicesPage> {
                   )),
                   leading: ClipOval(
                       child: Image.asset('assets/mountain_climber.jpg')),
-                  children: [
-                    Abdos(
-                      name: name,
-                      db: widget.db,
-                      exercises: exercises,
-                    ),
+                  children: const [
+                    Abdos(),
                   ],
                 ),
 

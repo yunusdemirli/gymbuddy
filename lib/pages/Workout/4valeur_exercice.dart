@@ -8,13 +8,13 @@ import 'package:gymbuddy_github/pages/Workout/componants.dart';
 class ValeurExercice extends StatefulWidget {
   final DataBase db;
   final String exo;
-  final String Workout;
+  final String workout;
 
   const ValeurExercice({
     super.key,
     required this.exo,
     required this.db,
-    required this.Workout,
+    required this.workout,
   });
 
   @override
@@ -24,12 +24,11 @@ class ValeurExercice extends StatefulWidget {
 class _ValeurExercieState extends State<ValeurExercice> {
   @override
   void initState() {
-    if (widget.db.mybox.get("LIST${widget.Workout}${widget.exo}") == null) {
+    if (widget.db.mybox.get("LIST${widget.workout}${widget.exo}") == null) {
       log('A');
       widget.db.createInitData1();
     } else {
-      log('hey');
-      widget.db.LoadData1(widget.Workout, widget.exo);
+      widget.db.LoadData1(widget.workout, widget.exo);
     }
     super.initState();
   }
@@ -55,7 +54,7 @@ class _ValeurExercieState extends State<ValeurExercice> {
     setState(() {
       widget.db.valeursList.removeAt(index);
     });
-    widget.db.UpdateData1(widget.Workout, widget.exo);
+    widget.db.UpdateData1(widget.workout, widget.exo);
   }
 
   void addExercice(String poids, String reps) {
@@ -63,7 +62,7 @@ class _ValeurExercieState extends State<ValeurExercice> {
     setState(() {
       widget.db.valeursList.add({'date': date, 'poids': poids, 'reps': reps});
     });
-    widget.db.UpdateData1(widget.Workout, widget.exo);
+    widget.db.UpdateData1(widget.workout, widget.exo);
   }
 
   void modifyExercice(int index) async {
@@ -86,9 +85,8 @@ class _ValeurExercieState extends State<ValeurExercice> {
           }
         });
       }
-      log('Weight: $weight, Reps: $reps');
     }
-    widget.db.UpdateData1(widget.Workout, widget.exo);
+    widget.db.UpdateData1(widget.workout, widget.exo);
   }
 
   @override

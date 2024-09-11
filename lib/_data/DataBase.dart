@@ -84,7 +84,6 @@ class DataBase {
 
   //load data-----------------------------------------------------------------------------
   void LoadData1(String day, String exercise) {
-    log('Loading data');
     dynamic data = mybox.get("LIST$day$exercise");
     if (data != null && data is List) {
       valeursList = List<Map<String, dynamic>>.from(data

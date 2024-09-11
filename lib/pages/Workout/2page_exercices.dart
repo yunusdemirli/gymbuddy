@@ -76,9 +76,9 @@ class _PageExercicesState extends State<PageExercices> {
             }
           });
         },*/
-        onPressed: () {
-          // Navigate to the page to select the exercise
-          Navigator.push(
+        onPressed: () async {
+          // Navigate to the page to select the exercise and wait for the result
+          final result = await Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => ExercicesPage(
@@ -88,6 +88,16 @@ class _PageExercicesState extends State<PageExercices> {
               ),
             ),
           );
+          if (result != null && result is Map<String, String>) {
+            setState(() {
+              print(result);
+              // Add the returned exercise and image path to the list
+              exercises.add({
+                "Exercice": result['exercice']!, // Retrieve the exercise name
+                "Image": result['image']!, // Retrieve the image path
+              });
+            });
+          }
         },
       ),
       //---------------------------------------------------------------------------------
@@ -134,7 +144,7 @@ class _PageExercicesState extends State<PageExercices> {
                           exo: exercises[index]['Exercice'] ??
                               'Default Exercise Name',
                           db: widget.db,
-                          Workout: name,
+                          workout: name,
                         ),
                       ),
                     );
